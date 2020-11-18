@@ -1,1 +1,1 @@
-# quadratic-pricing-protocll
+# quadratic-pricing-protocol
