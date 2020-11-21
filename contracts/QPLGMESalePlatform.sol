@@ -50,7 +50,7 @@ contract QPLGMESalePlatform is RoleBasedAccessControl {
      *  might need to save WETH address and use IWETH interface.
      */
     // TODO Sales will need to check if proceedsToken_ is the WETH address and accept Ethereum to automatically convert to WETH.
-    // TODO needs to confirm _msgSender() has correct role to register sale.
+    // TODO needs to confirm Context._msgSender() has correct role to register sale.
     // TODO needs an event.
     function registerSale(address saleToken_, address proceedsToken_, address uniswapV2CompatibleRouterddress_)  public {
         require(_uniswapV2CompatibleExchangeRouterToFactoryMapping[uniswapV2CompatibleRouterddress_] != 0, "QPLGMESalePlatform not compaitble with the exchange.");
@@ -58,7 +58,7 @@ contract QPLGMESalePlatform is RoleBasedAccessControl {
         bytes32 saleID = _encodeSaleID(saleToken_, proceedsToken_, uniswapV2CompatibleRouterddress_);
 
         _saleDataMapping[saleID].saleActive = false;
-        _saleDataMapping[saleID].listerAddress = Context._msgSender();
+        _saleDataMapping[saleID].listerAddress = Context.Context._msgSender();
         _saleDataMapping[saleID].tokenForSale = tokenForSale_;
         _saleDataMapping[saleID].proceedsToken = proceedsToken_;
         _saleDataMapping[saleID].tokenListing.uniswapV2CompatibleRouter = IUniswapV2Router02(uniswapV2CompatibleRouterddress_);
@@ -215,16 +215,16 @@ contract QPLGMESalePlatform is RoleBasedAccessControl {
 
     // function buyERIS( uint256 amount) public payable erisQPLGMEActive() {
     //     uint256 amountPaidInWEI = amount;
-    //     _testToken.transferFrom( _msgSender(), address(this), amount);
+    //     _testToken.transferFrom( Context._msgSender(), address(this), amount);
 
-    //     uin256 memory currentBuyersWeirPaidForEris_ = _weiPaidForErisByAddress[_msgSender()];
-    //     _weiPaidForErisByAddress[_msgSender()] = _weiPaidForErisByAddress[_msgSender()].add(amountPaidInWEI);
+    //     uin256 memory currentBuyersWeirPaidForEris_ = _weiPaidForErisByAddress[Context._msgSender()];
+    //     _weiPaidForErisByAddress[Context._msgSender()] = _weiPaidForErisByAddress[Context._msgSender()].add(amountPaidInWEI);
 
-    //     totalWeiPaidForEris = totalWeiPaidForEris.add(_weiPaidForErisByAddress[_msgSender()]).sub( currentBuyersWeirPaidForEris_ );
+    //     totalWeiPaidForEris = totalWeiPaidForEris.add(_weiPaidForErisByAddress[Context._msgSender()]).sub( currentBuyersWeirPaidForEris_ );
 
-    //     _totalSupply = _totalSupply.add( _erisForWeiPaid(_weiPaidForErisByAddress[_msgSender()].add(amountPaidInWEI)) ).sub( _erisForWeiPaid(_weiPaidForErisByAddress[_msgSender()] ) );
+    //     _totalSupply = _totalSupply.add( _erisForWeiPaid(_weiPaidForErisByAddress[Context._msgSender()].add(amountPaidInWEI)) ).sub( _erisForWeiPaid(_weiPaidForErisByAddress[Context._msgSender()] ) );
 
-    //     ethDonationToCharity = ethDonationToCharity.add( _weiPaidForErisByAddress[_msgSender()] / 10 ).sub( currentBuyersWeirPaidForEris_.div(10) );
+    //     ethDonationToCharity = ethDonationToCharity.add( _weiPaidForErisByAddress[Context._msgSender()] / 10 ).sub( currentBuyersWeirPaidForEris_.div(10) );
     // }
 
     // function endQPLGME() public onlyOwner() {
@@ -239,10 +239,10 @@ contract QPLGMESalePlatform is RoleBasedAccessControl {
     //         _completeErisGME();
     //     }
 
-    //     if( _weiPaidForErisByAddress[_msgSender()] > 0 ){
-    //         uint256 weiPaidForErisByAddress_ = _weiPaidForErisByAddress[_msgSender()];
-    //         _weiPaidForErisByAddress[_msgSender()] = 0;
-    //         _balances[_msgSender()] =  _erisForWeiPaid( weiPaidForErisByAddress_ );
+    //     if( _weiPaidForErisByAddress[Context._msgSender()] > 0 ){
+    //         uint256 weiPaidForErisByAddress_ = _weiPaidForErisByAddress[Context._msgSender()];
+    //         _weiPaidForErisByAddress[Context._msgSender()] = 0;
+    //         _balances[Context._msgSender()] =  _erisForWeiPaid( weiPaidForErisByAddress_ );
     //     }
     // }
 
@@ -304,13 +304,13 @@ contract QPLGMESalePlatform is RoleBasedAccessControl {
     // }
 
     // function withdrawPaidETHForfietAllERIS() public erisQPLGMEActive() {
-    //     uint256 weiPaid = _weiPaidForErisByAddress[_msgSender()];
-    //     _weiPaidForErisByAddress[_msgSender()] = 0 ;
-    //     _balances[_msgSender()] = 0;
+    //     uint256 weiPaid = _weiPaidForErisByAddress[Context._msgSender()];
+    //     _weiPaidForErisByAddress[Context._msgSender()] = 0 ;
+    //     _balances[Context._msgSender()] = 0;
     //     totalWeiPaidForEris = totalWeiPaidForEris.sub( weiPaid );
     //     ethDonationToCharity = ethDonationToCharity.sub( weiPaid.div(10) );
     //     // _weth.withdraw( weiPaid );
-    //     // _msgSender().transfer( weiPaid );
-    //     _testToken.transfer( _msgSender(), weiPaid );
+    //     // Context._msgSender().transfer( weiPaid );
+    //     _testToken.transfer( Context._msgSender(), weiPaid );
     // }
 }
