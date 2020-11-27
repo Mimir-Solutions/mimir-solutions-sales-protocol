@@ -3,7 +3,7 @@ pragma solidity 0.7.4;
 
 import "hardhat/console.sol";
 
-import "../libraries/dataTypes/collections/EnumerableSet.sol";
+import "../../../../../dependencies/holyzeppelin/contracts/datatypes/collections/EnumerableSet.sol";
 
 /**
  * Library to list and deposit a token on a uniswap Compatiable exchange.

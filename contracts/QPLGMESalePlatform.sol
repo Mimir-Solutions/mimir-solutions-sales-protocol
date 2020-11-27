@@ -3,8 +3,8 @@ pragma solidity 0.7.4;
 
 import "hardhat/console.sol";
 
-import "../libraries/utils/listing/uniswapV2/TokenListingUniswapV2Compatible.sol";
-import "../dependencies/libraries/utils/time/interfaces/IDateTime.sol";
+import "./libraries/datatypes/structs/listing/uniswapV2/TokenListingUniswapV2Compatible.sol";
+// import "../dependencies/libraries/utils/time/interfaces/IDateTime.sol";
 
 /**
 Contract to execute the sale of a mintable token using a quadratic pricing model.
@@ -14,7 +14,7 @@ contract QPLGMESalePlatform is RoleBasedAccessControl {
     using TokenListingUniswapV2Compatible for TokenListingUniswapV2Compatible.TokenListing;
     using TokenListingUniswapV2Compatible for TokenListingUniswapV2Compatible.SaleData;
 
-    IDateTime private dateTimeCalculator;
+    // IDateTime private dateTimeCalculator;
 
     // Intended to hold DEX information in a form that can be maintained over time.
     mapping( address => address ) private _uniswapV2CompatibleExchangeRouterToFactoryMapping;
