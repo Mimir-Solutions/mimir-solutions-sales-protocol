@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 
 import "./dependencies/holyzeppelin/contracts/access/Ownable.sol";
 
-contract QPLGMESalePlatform is Ownable {
+contract SalesPlatform is Ownable {
 
     constructor() {}
 }
