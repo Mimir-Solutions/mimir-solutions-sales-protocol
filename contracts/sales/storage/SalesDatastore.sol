@@ -45,8 +45,8 @@ contract SalesDatastore is Ownable {
     // TODO needs to be set to SalesPlatform role.
     function registerUSV2CExchange( address usv2cRouter_ ) public onlySalesPlatform() returns ( bytes32 usv2ExchangeID_ ) {
         require( usv2cRouter_.isContract() );
-        require( _usv2Exchanges[usv2cRouter_] == 0 );
-        _usv2Exchanges[usv2cRouter_] = usv2cRouter_;
+        require( bytes32(uint256(_usv2Exchanges[_encodeUSV2CExchangeID( usv2cRouter_ )])) == 0 );
+        _usv2Exchanges[_encodeUSV2CExchangeID( usv2cRouter_ )] = usv2cRouter_;
         return _encodeUSV2CExchangeID( usv2cRouter_ );
     }
 
