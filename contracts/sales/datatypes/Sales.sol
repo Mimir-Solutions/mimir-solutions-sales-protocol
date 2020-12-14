@@ -9,12 +9,6 @@ import "../../dependencies/holyzeppelin/contracts/access/Ownable.sol";
 
 library Sales {
 
-    using EnumerableMap for EnumerableMap.Bytes32ToAddressMap;
-
-    struct USV2CExchanges {
-        EnumerableMap.Bytes32ToAddressMap _routers;
-    }
-
     // Not sure all these properties are needed.
     // Just added what seemed like a good idea now.
     struct TokenListing {

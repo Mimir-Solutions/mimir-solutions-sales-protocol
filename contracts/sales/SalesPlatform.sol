@@ -23,13 +23,6 @@ contract SalesPlatform is Ownable {
     function registerUniswapV2CompatiableExchange( address usv2cRouterddress_ ) public onlyOwner() {
         // Confirming that the submitted UniSwapV2 router address is a contract to prevent a wallet being added.
         require( usv2cRouterddress_.isContract() );
-        /*
-        Confirming that the submitted UniswapV2 router address is a UniswapV2 compliant timplementation.
-        Not exhaustive. But since UniswapV2 predates ERC165 no good way exists to confirm compliance.
-        But be manuall reviewed prior to addition.
-        The intent of this function to provided minimal preotection against platform admin malfeasance or error.
-        */
-        require( IUniswapV2Router02(usv2cRouterddress_).factory() != 0 );
         // Adding UniSwapV2 factory address to mapping using router address as key.
         // _usv2cRouterToFactoryMapping[exhchangeRouterAddress_] = IUniswapV2Router02(usv2cRouterddress_).factory();
     }
