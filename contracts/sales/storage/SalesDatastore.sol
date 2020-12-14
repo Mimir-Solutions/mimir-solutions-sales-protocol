@@ -11,9 +11,9 @@ contract SalesDatastore is Ownable {
     using Address for address;
     // using SafeERC20 for IERC20;
 
-    using Sales for Sales.USV2CExchange;
+    using Sales for Sales.USV2CExchanges;
 
-    mapping ( bytes32 => Sales.USV2CExchange ) _usv2Exchanges;
+    mapping ( bytes32 => Sales.USV2CExchanges ) _usv2Exchanges;
 
     constructor() {}
 
@@ -40,8 +40,8 @@ contract SalesDatastore is Ownable {
 
     // TODO needs to be updated to use Authorization platform.
     // TODO needs to be set to SalesPlatform role.
-    function registerUSV2CExchange( address usv2Router_ ) public onlyOwner() returns ( bytes32 usv2ExchangeID_ ) {
-        require( usv2Router_.isContract() );
+    function registerUSV2CExchange( address usv2cRouter_ ) public onlyOwner() returns ( bytes32 usv2ExchangeID_ ) {
+        require( usv2cRouter_.isContract() );
         require( !_usv2Exchanges.contains( usv2cRouter_ ) );
         _usv2Exchanges.set( _encodeUSV2ExchangeID( usv2cRouter_ ), usv2cRouter_ );
         return _encodeUSV2ExchangeID( usv2cRouter_ );

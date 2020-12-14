@@ -31,7 +31,7 @@ contract SalesPlatform is Ownable {
         */
         require( IUniswapV2Router02(usv2cRouterddress_).factory() != 0 );
         // Adding UniSwapV2 factory address to mapping using router address as key.
-        _usv2cRouterToFactoryMapping[exhchangeRouterAddress_] = IUniswapV2Router02(usv2cRouterddress_).factory();
+        // _usv2cRouterToFactoryMapping[exhchangeRouterAddress_] = IUniswapV2Router02(usv2cRouterddress_).factory();
     }
 
     /**
@@ -43,9 +43,9 @@ contract SalesPlatform is Ownable {
     // TODO needs an event.
     // TODO check fasibility of moving to independent datatore.
     function registerSale( address saleToken_, uint256 saleTokenQPMultiplier_, address proceedsToken_, address uniswapV2CompatibleRouterddress_ )  public {
-        require(_usv2cRouterToFactoryMapping[uniswapV2CompatibleRouterddress_] != 0, "QPLGMESalePlatform not compaitble with this exchange.");
+        // require(_usv2cRouterToFactoryMapping[uniswapV2CompatibleRouterddress_] != 0, "QPLGMESalePlatform not compaitble with this exchange.");
 
-        bytes32 saleID_ = _encodeSaleID(saleToken_, proceedsToken_, uniswapV2CompatibleRouterddress_);
+        // bytes32 saleID_ = _encodeSaleID(saleToken_, proceedsToken_, uniswapV2CompatibleRouterddress_);
 
         // _saleDataMapping[saleID_].saleActive = false;
         // _saleDataMapping[saleID_].listerAddress = Context._msgSender();
