@@ -7,3 +7,6 @@
 [submodule "contracts/dependencies/uniswap-v2-periphery"]
 	path = contracts/dependencies/uniswap-v2-periphery
 	url = git@github.com:Mimir-Solutions/uniswap-v2-periphery.git
+[submodule "contracts/dependencies/eris-token"]
+	path = contracts/dependencies/eris-token
+	url = git@github.com:Mimir-Solutions/eris-token.git
