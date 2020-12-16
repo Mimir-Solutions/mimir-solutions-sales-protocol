@@ -1,0 +1,15 @@
+[submodule "contracts/dependencies/janus-token"]
+	path = contracts/dependencies/janus-token
+	url = git@github.com:Mimir-Solutions/janus-token.git
+[submodule "contracts/dependencies/gemini-token"]
+	path = contracts/dependencies/gemini-token
+	url = git@github.com:Mimir-Solutions/gemini-token.git
+[submodule "contracts/dependencies/holyzeppelin"]
+	path = contracts/dependencies/holyzeppelin
+	url = git@github.com:Mimir-Solutions/holyzeppelin.git
+[submodule "contracts/dependencies/authorization-platform"]
+	path = contracts/dependencies/authorization-platform
+	url = git@github.com:Mimir-Solutions/authorization-platform.git
+[submodule "contracts/dependencies/pantheon-asset-management-platform"]
+	path = contracts/dependencies/pantheon-asset-management-platform
+	url = git@github.com:Mimir-Solutions/pantheon-asset-management-platform.git

@@ -4,10 +4,11 @@ pragma solidity 0.7.5;
 import "hardhat/console.sol";
 
 import "../dependencies/holyzeppelin/contracts/access/Ownable.sol";
-import "../dependencies/holyzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../dependencies/holyzeppelin/contracts/token/ERC20/SafeERC20.sol";
+import "./storage/interfaces/ISalesDatastore.sol";
+// import "../dependencies/holyzeppelin/contracts/token/ERC20/IERC20.sol";
+// import "../dependencies/holyzeppelin/contracts/token/ERC20/SafeERC20.sol";
 
-import "../dependencies/uniswap-v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
+// import "../dependencies/uniswap-v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 
 import "./storage/interfaces/ISalesDatastore.sol";
 
@@ -16,7 +17,11 @@ contract SalesPlatform is Ownable {
     using Address for address;
     using SafeERC20 for IERC20;
 
-    constructor() {}
+    ISalesDatastore public override salesPlatform;
+
+    constructor( address salesPlatform_ ) {
+
+    }
 
     // TODO needs authorization integration to limit access to platform admin
     // TODO needs exchange listing tester to enable public registering of exchanges. This should confirm compatibility by minting 2 test tokens, listing, and attempting to trade. Can be implemented as an adaptor for later development
